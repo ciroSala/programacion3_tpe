@@ -3,7 +3,7 @@ public class Maquina {
     private int piezasProduce;
 
     public Maquina(String key, int piezasProduce){
-        this.key = key;
+        this.key = Integer.parseInt(key);
         this.piezasProduce = piezasProduce;
     }
 

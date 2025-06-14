@@ -4,15 +4,18 @@ import java.util.List;
 public class Greedy {
     private ArrayList<Maquina> maquinas;
     private int cantPiezasProducir;
+    private int estadosGenerados;
 
     public Greedy() {
         this.maquinas = new ArrayList<>();
         this.cantPiezasProducir = 0;
+        this.estadosGenerados = 0;
     }
 
     public Estado buscarSecuenciaMaquinas(ArrayList<Maquina> maquinas, int cantPiezasProducir) {
         this.maquinas = maquinas;
         this.cantPiezasProducir = cantPiezasProducir;
+        this.estadosGenerados = 0;
         return greedy();
     }
 
@@ -34,13 +37,12 @@ public class Greedy {
         maquinas.sort((m1, m2) -> Integer.compare(m2.getPiezasProduce(), m1.getPiezasProduce()));
 
         int piezasRestantes = cantPiezasProducir;
-        int candidatosConsiderados = 0;
 
         while (piezasRestantes > 0) {
             boolean maquinaElegida = false;
 
             for (Maquina maquina : maquinas) {
-                candidatosConsiderados++;
+                this.estadosGenerados++;
                 if (maquina.getPiezasProduce() <= piezasRestantes) {
                     // Avanzar con esta máquina
                     estado.avanzar(maquina);
@@ -57,6 +59,10 @@ public class Greedy {
         }
 
         return estado;
+    }
+
+    public int getCantEstados() {
+        return this.estadosGenerados;
     }
 }
 

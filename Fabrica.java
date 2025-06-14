@@ -29,7 +29,7 @@ public class Fabrica {
         if(this.solucion!=null){
             this.solucion.clear();
         }
-        this.solucion = this.greedy.buscarSecuenciaMaquinas(this.maquinas, this.getPiezasTotales())
+        this.solucion = this.greedy.buscarSecuenciaMaquinas(this.maquinas, this.getPiezasTotales());
         return this.solucion.toString();
     }
 
@@ -43,5 +43,9 @@ public class Fabrica {
 
     public int getCantEstados(){
         return this.backtracking.getCantEstados();
+    }
+
+    public int getCantEstadosGreedy(){
+        return this.greedy.getCantEstados();
     }
 }
