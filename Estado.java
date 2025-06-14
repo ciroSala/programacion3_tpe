@@ -71,7 +71,7 @@ public class Estado {
         Iterator<Maquina> iterator = this.secuenciaMaquinas.iterator();
         while(iterator.hasNext()){
             Maquina maquina = iterator.next();
-            salida.append(maquina.getKey()).append(", ");
+            salida.append(maquina.getNombre()).append(", ");
         }
         if (salida.length() > 1) {
             salida.setLength(salida.length() - 2);

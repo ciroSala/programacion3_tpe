@@ -14,9 +14,12 @@ public class App {
             while ((linea = buffer.readLine()) != null) {
                 if (linea.trim().isEmpty()) continue;
 
-                String[] confMaq = linea.split(", ");
-                String nombre = confMaq[0];
-                int piezasQueProduce = Integer.parseInt(confMaq[1]);
+                String[] confMaq = linea.split(",\\s*");
+                if (confMaq.length != 2) {
+                    throw new IllegalArgumentException("Línea mal formateada: " + linea);
+                }
+                String nombre = confMaq[0].trim();
+                int piezasQueProduce = Integer.parseInt(confMaq[1].trim());
                 Maquina maq = new Maquina(nombre, piezasQueProduce);
                 maquinas.add(maq);
             }

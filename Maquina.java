@@ -1,14 +1,16 @@
+import java.util.Objects;
+
 public class Maquina {
-    private int key;
+    private String nombre;
     private int piezasProduce;
 
-    public Maquina(String key, int piezasProduce){
-        this.key = Integer.parseInt(key);
+    public Maquina(String nombre, int piezasProduce){
+        this.nombre = nombre;
         this.piezasProduce = piezasProduce;
     }
 
-    public int getKey() {
-        return key;
+    public String getNombre() {
+        return nombre;
     }
 
     public int getPiezasProduce() {
@@ -21,6 +23,6 @@ public class Maquina {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Maquina maquina = (Maquina) o;
-        return key == maquina.key;
+        return Objects.equals(nombre, maquina.nombre);
     }
 }
