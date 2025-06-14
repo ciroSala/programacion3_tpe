@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        String archivo = "C:\\Users\\ciros\\IdeaProjects\\programacion3\\src\\tp5_backtracking\\Configuracion.txt";
+        String archivo = "C:\\Users\\ciros\\IdeaProjects\\programacion3\\src\\tp_especial\\untitled\\src\\Configuracion.txt";
+        System.out.println("Leyendo archivo: " + archivo);
         try (BufferedReader buffer = new BufferedReader(new FileReader(archivo))) {
             String linea;
             ArrayList<Maquina> maquinas = new ArrayList<>();
